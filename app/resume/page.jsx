@@ -1,6 +1,26 @@
 "use client";
 
-import { FaHtml5, FaExternalLinkAlt } from "react-icons/fa";
+import {
+  FaHtml5,
+  FaPython,
+  FaJs,
+  FaReact,
+  FaExternalLinkAlt,
+  FaCss3,
+} from "react-icons/fa";
+import { TbBrandCpp, TbBrandFlutter } from "react-icons/tb";
+import { IoLogoFirebase } from "react-icons/io5";
+import {
+  SiDart,
+  SiMysql,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiNumpy,
+  SiPandas,
+  SiScikitlearn,
+  SiTensorflow,
+  SiPytorch,
+} from "react-icons/si";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -105,8 +125,72 @@ const skills = {
   description: "Skills Description",
   skillList: [
     {
+      icon: <TbBrandCpp />,
+      name: "C++",
+    },
+    {
+      icon: <FaJs />,
+      name: "JavaScript",
+    },
+    {
+      icon: <FaPython />,
+      name: "Python",
+    },
+    {
+      icon: <SiDart />,
+      name: "Dart",
+    },
+    {
       icon: <FaHtml5 />,
       name: "HTML 5",
+    },
+    {
+      icon: <FaCss3 />,
+      name: "CSS 3",
+    },
+    {
+      icon: <SiTailwindcss />,
+      name: "Tailwind CSS",
+    },
+    {
+      icon: <FaReact />,
+      name: "React",
+    },
+    {
+      icon: <SiNextdotjs />,
+      name: "Next.js",
+    },
+    {
+      icon: <SiMysql />,
+      name: "MySQL",
+    },
+    {
+      icon: <TbBrandFlutter />,
+      name: "Flutter",
+    },
+    {
+      icon: <IoLogoFirebase />,
+      name: "Firebase",
+    },
+    {
+      icon: <SiNumpy />,
+      name: "Numpy",
+    },
+    {
+      icon: <SiPandas />,
+      name: "Pandas",
+    },
+    {
+      icon: <SiScikitlearn />,
+      name: "Scikit-Learn",
+    },
+    {
+      icon: <SiTensorflow />,
+      name: "Tensorflow",
+    },
+    {
+      icon: <SiPytorch />,
+      name: "Pytorch",
     },
   ],
 };
@@ -390,8 +474,37 @@ const Resume = () => {
               </div>
             </TabsContent>
             {/* Skills */}
-            <TabsContent value="skills" className="w-full">
-              Skills
+            <TabsContent value="skills" className="w-full h-full">
+              <div className="flex flex-col gap-[30px]">
+                <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                  <h3 className="text-4xl font-bold">{education.title}</h3>
+                  {/* <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                  {education.description}
+                </p> */}
+                </div>
+                <ScrollArea className="h-[400px]">
+                  <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
+                    {skills.skillList.map((skill, index) => {
+                      return (
+                        <li key={index}>
+                          <TooltipProvider delayDuration={100}>
+                            <Tooltip>
+                              <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
+                                <div className="text-6xl group-hover:text-accent transition-all duration-300">
+                                  {skill.icon}
+                                </div>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>{skill.name}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </ScrollArea>
+              </div>
             </TabsContent>
             {/* Achievements */}
             <TabsContent value="achievement" className="w-full">
