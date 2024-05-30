@@ -209,8 +209,8 @@ const achievements = {
       text: "on Codechef with Maximum Rating : 1877",
     },
     {
-      boldText: "Global Top 2.99% Rated Knight",
-      text: "on Leetcode with Maximum Rating : 1986",
+      boldText: "Global Top 2.02% Rated Knight",
+      text: "on Leetcode with Maximum Rating : 2069",
     },
     {
       boldText: "Institute Rank 40",
