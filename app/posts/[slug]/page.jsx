@@ -41,9 +41,13 @@ const PostPage = (props) => {
   const slug = props.params.slug;
   const post = getPostContent(slug);
   return (
-    <div>
-      <h1>{post.data.title}</h1>
-      <Markdown>{post.content}</Markdown>
+    <div className="w-full flex flex-col gap-[30px]">
+      <h1 className="text-4xl text-accent text-center">{post.data.title}</h1>
+      <div className="bg-[#232329] h-full py-6 px-10 mx-20 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
+        <article className="prose-invert prose-h2:font-bold prose-h2:text-accent">
+          <Markdown>{post.content}</Markdown>
+        </article>
+      </div>
     </div>
   );
 };

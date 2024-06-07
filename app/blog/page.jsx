@@ -1,6 +1,7 @@
 import fs from "fs";
 import Link from "next/link";
 import matter from "gray-matter";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const getPostMetadata = () => {
   const folder = "posts/";
@@ -25,15 +26,27 @@ const getPostMetadata = () => {
 const Blog = () => {
   const postMetaData = getPostMetadata();
   const postPreviews = postMetaData.map((post) => (
-    <div key={post.slug}>
+    <li
+      key={post.slug}
+      className="bg-[#232329] h-[176px] py-6 px-10 mx-20 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
+    >
       <Link href={`/posts/${post.slug}`}>
-        <h2>{post.title}</h2>
-        <p>{post.subtitle}</p>
-        <p>{post.date}</p>
+        <h3 className="text-2xl lg:text-left pb-4 text-accent">{post.title}</h3>
+        <p className="text-xl pb-2">{post.subtitle}</p>
+        <span className="text-white/60">{post.date}</span>
       </Link>
-    </div>
+    </li>
   ));
-  return <div>{postPreviews}</div>;
+  return (
+    <div className="w-full flex flex-col text-left gap-[30px]">
+      <h2 className="text-4xl font-bold text-center">
+        <span className="text-accent">Jaysukh</span>'s Blog
+      </h2>
+      <ul className="grid grid-cols-1 lg:grid-cols-1 gap-[20px]">
+        {postPreviews}
+      </ul>
+    </div>
+  );
 };
 
 export default Blog;
