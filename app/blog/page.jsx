@@ -1,7 +1,6 @@
 import fs from "fs";
 import Link from "next/link";
 import matter from "gray-matter";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 const getPostMetadata = () => {
   const folder = "posts/";
@@ -30,7 +29,7 @@ const Blog = () => {
       key={post.slug}
       className="bg-[#232329] h-[176px] py-6 px-10 mx-20 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
     >
-      <Link href={`/posts/${post.slug}`}>
+      <Link href={`/blog/${post.slug}`}>
         <h3 className="text-2xl lg:text-left pb-4 text-accent">{post.title}</h3>
         <p className="text-xl pb-2">{post.subtitle}</p>
         <span className="text-white/60">{post.date}</span>
