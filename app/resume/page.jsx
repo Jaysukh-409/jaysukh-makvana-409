@@ -206,11 +206,11 @@ const achievements = {
     },
     {
       boldText: "4-Star",
-      text: "on Codechef with Maximum Rating : 1877",
+      text: "on Codechef with Maximum Rating : 1890",
     },
     {
-      boldText: "Global Top 2.02% Rated Knight",
-      text: "on Leetcode with Maximum Rating : 2069",
+      boldText: "Global Top 1.97% Rated Knight",
+      text: "on Leetcode with Maximum Rating : 2075",
     },
     {
       boldText: "Institute Rank 40",
