@@ -202,18 +202,18 @@ const achievements = {
   achievementList: [
     {
       boldText: "Specialist",
-      text: "on Codeforces with Maximum Rating : 1500",
+      text: "on Codeforces with Maximum Rating : 1506",
     },
     {
       boldText: "4-Star",
-      text: "on Codechef with Maximum Rating : 1890",
+      text: "on Codechef with Maximum Rating : 1938",
     },
     {
       boldText: "Global Top 1.97% Rated Knight",
-      text: "on Leetcode with Maximum Rating : 2075",
+      text: "on Leetcode with Maximum Rating : 2099",
     },
     {
-      boldText: "Institute Rank 40",
+      boldText: "Institute Rank 45",
       text: "on GeeksforGeeks",
     },
     {
