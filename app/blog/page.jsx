@@ -19,6 +19,10 @@ const getPostMetadata = () => {
       date: matterResult.data.date,
     };
   });
+
+  // Sort posts by date
+  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
   return posts;
 };
 

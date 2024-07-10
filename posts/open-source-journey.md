@@ -1,6 +1,6 @@
 ---
 title: "Open Source Journey"
-subtitle: "In this blog I described How I get into it and my way to the first PR"
+subtitle: "How I get into it and my way to the first PR"
 date: "2024-01-12"
 ---
 
