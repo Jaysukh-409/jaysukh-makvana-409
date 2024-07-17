@@ -209,11 +209,11 @@ const achievements = {
       text: "on Codechef with Maximum Rating : 1938",
     },
     {
-      boldText: "Global Top 1.23% Rated Guardian",
-      text: "on Leetcode with Maximum Rating : 2176",
+      boldText: "Global Top 1.16% Rated Guardian",
+      text: "on Leetcode with Maximum Rating : 2186",
     },
     {
-      boldText: "Institute Rank 39",
+      boldText: "Institute Rank 34",
       text: "on GeeksforGeeks",
     },
     {
