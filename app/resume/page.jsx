@@ -20,6 +20,7 @@ import {
   SiScikitlearn,
   SiTensorflow,
   SiPytorch,
+  SiFortran,
 } from "react-icons/si";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -101,7 +102,7 @@ const education = {
     {
       institute: "Indian Institute of Technology, Jodhpur",
       degree: "B.Tech in Computer Science",
-      grade: "7.08/10",
+      grade: "7.22/10",
       timeperiod: "2021 - 2025",
     },
     {
@@ -139,6 +140,10 @@ const skills = {
     {
       icon: <SiDart />,
       name: "Dart",
+    },
+    {
+      icon: <SiFortran />,
+      name: "Fortran",
     },
     {
       icon: <FaHtml5 />,
@@ -209,8 +214,8 @@ const achievements = {
       text: "on Codechef with Maximum Rating : 1938",
     },
     {
-      boldText: "Global Top 1.16% Rated Guardian",
-      text: "on Leetcode with Maximum Rating : 2186",
+      boldText: "Global Top 1.05% Rated Guardian",
+      text: "on Leetcode with Maximum Rating : 2206",
     },
     {
       boldText: "Institute Rank 34",
