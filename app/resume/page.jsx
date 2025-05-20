@@ -581,7 +581,7 @@ const Resume = () => {
                         >
                           <p className="text-white/60">
                             {item.platform + " "}
-                            <Link className="text-accent" href={item.link}>
+                            <Link className="text-accent" href={item.link} target="_blank">
                               {item.username}
                             </Link>
                           </p>
@@ -613,7 +613,7 @@ const Resume = () => {
                           <p className="text-white/60 min-h-[40px] text-center lg:text-left">
                             {item.description}
                           </p>
-                          <Link href={item.link}>
+                          <Link href={item.link} target="_blank">
                             <FaExternalLinkAlt />
                           </Link>
                         </li>
