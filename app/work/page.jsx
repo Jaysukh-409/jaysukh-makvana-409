@@ -25,8 +25,8 @@ const projects = [
   },
   {
     num: "03",
-    category: "Histopathologic Cancer Detection",
-    title: "Machine Learning Project",
+    category: "Machine Learning",
+    title: "Histopathologic Cancer Detection",
     description:
       "A deep learning project focused on detecting metastatic cancer in histopathologic tissue images. The solution involves building a fully convolutional Vision Transformer (ViT) from scratch using PyTorch, designed to classify over 220,000 microscopic RGB images with high precision. By leveraging the One Cycle Policy for optimized training and benchmarking against a ResNet-18 model, the custom ViT demonstrated competitive accuracy with significantly fewer parameters. The model learned to focus effectively on the image regions most indicative of cancerous cells, showcasing the potential of attention-based architectures in medical image analysis.",
     stack: [{ name: "Python" }, { name: "PyTorch" }, { name: "Tensorflow" }],
@@ -58,9 +58,10 @@ const Work = () => {
                   </div>
                   <Link
                     href={project.github}
+                    target="_blank"
                     className="w-[32px] h-[32px] border border-transparent rounded-full bg-transparent transition-all duration-500 flex justify-center items-center bg-accent group-hover:bg-accent"
                   >
-                    <BsGithub className="text-3xl text-accent  group-hover:text-primary transition-all duration-500" />
+                    <BsGithub className="text-3xl text-accent group-hover:text-primary transition-all duration-500" />
                   </Link>
                 </div>
                 <div className="text-lg text-white font-semibold">
