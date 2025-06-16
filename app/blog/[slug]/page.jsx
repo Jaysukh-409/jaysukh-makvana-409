@@ -19,8 +19,7 @@ const getPostMetadata = () => {
   const files = fs.readdirSync(folder);
   const markdownPosts = files.filter((file) => file.endsWith(".md"));
 
-  // Get gray-matter metadata from each post
-  const posts = markdownPosts.map((file) => {
+  return markdownPosts.map((file) => {
     const path = `${folder}${file}`;
     const content = fs.readFileSync(path, "utf8");
     const matterResult = matter(content);
@@ -31,7 +30,6 @@ const getPostMetadata = () => {
       date: matterResult.data.date,
     };
   });
-  return posts;
 };
 
 export const generateStaticParams = async () => {
@@ -57,31 +55,36 @@ const CodeBlock = ({ inline, className, children, ...props }) => {
 const PostPage = (props) => {
   const slug = props.params.slug;
   const post = getPostContent(slug);
+
   return (
-    <div className="w-full flex flex-col gap-[30px]">
-      <h1 className="text-4xl text-accent text-center">{post.data.title}</h1>
-      <div className="bg-[#232329] h-full py-6 px-10 mx-20 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
+    <div className="w-full flex flex-col gap-8 px-4 sm:px-10 py-10">
+      <h1 className="text-3xl sm:text-4xl text-accent text-center font-bold">
+        {post.data.title}
+      </h1>
+
+      <div className="bg-[#232329] w-full max-w-4xl mx-auto rounded-xl px-6 sm:px-10 py-6 flex flex-col items-start gap-4">
         <ReactMarkdown
           children={post.content}
           remarkPlugins={[remarkGfm]}
           components={{
             h1: ({ node, ...props }) => (
-              <h1
-                className="text-2xl text-center text-accent font-bold"
-                {...props}
-              />
+              <h1 className="text-2xl text-accent font-bold" {...props} />
             ),
             code: CodeBlock,
             strong: ({ node, ...props }) => (
               <strong className="font-bold text-purple-500" {...props} />
             ),
             p: ({ node, ...props }) => (
-              <p className="my-4 text-[18px]" {...props} />
+              <p
+                className="my-2 text-base sm:text-lg text-white/90"
+                {...props}
+              />
             ),
             a: ({ node, ...props }) => (
               <a
-                className="text-blue-500 hover:underline"
+                className="text-blue-500 hover:underline break-all"
                 target="_blank"
+                rel="noopener noreferrer"
                 {...props}
               />
             ),

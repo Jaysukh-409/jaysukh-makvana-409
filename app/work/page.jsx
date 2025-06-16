@@ -31,12 +31,12 @@ const projects = [
       "A deep learning project focused on detecting metastatic cancer in histopathologic tissue images. The solution involves building a fully convolutional Vision Transformer (ViT) from scratch using PyTorch, designed to classify over 220,000 microscopic RGB images with high precision. By leveraging the One Cycle Policy for optimized training and benchmarking against a ResNet-18 model, the custom ViT demonstrated competitive accuracy with significantly fewer parameters. The model learned to focus effectively on the image regions most indicative of cancerous cells, showcasing the potential of attention-based architectures in medical image analysis.",
     stack: [{ name: "Python" }, { name: "PyTorch" }, { name: "Tensorflow" }],
     github: "https://github.com/Jaysukh-409/Histopathologic-Cancer-Detection",
-  }
+  },
 ];
 
 const Work = () => {
   return (
-    <section className="min-h-[80vh] flex flex-col justify-center px-10 mx-20 py-12 xl:py-0">
+    <section className="min-h-[80vh] flex flex-col justify-center px-5 sm:px-10 md:mx-20 py-12">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -44,44 +44,49 @@ const Work = () => {
             opacity: 1,
             transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
           }}
-          className="grid grid-cols-1 gap-[60px]"
+          className="grid grid-cols-1 gap-10"
         >
-          {projects.map((project, index) => {
-            return (
-              <div
-                key={index}
-                className="flex-1 flex flex-col justify-center gap-6 group"
-              >
-                <div className="w-full flex justify-between items-center">
-                  <div className="text-4xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500">
-                    {project.num + " " + project.title}
-                  </div>
-                  <Link
-                    href={project.github}
-                    target="_blank"
-                    className="w-[32px] h-[32px] border border-transparent rounded-full bg-transparent transition-all duration-500 flex justify-center items-center bg-accent group-hover:bg-accent"
-                  >
-                    <BsGithub className="text-3xl text-accent group-hover:text-primary transition-all duration-500" />
-                  </Link>
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className="flex-1 flex flex-col justify-center gap-4 sm:gap-6 group"
+            >
+              {/* Project title and GitHub icon */}
+              <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                <div className="text-2xl sm:text-4xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500">
+                  {project.num + " " + project.title}
                 </div>
-                <div className="text-lg text-white font-semibold">
-                  {project.category}
-                </div>
-                <ul className="flex gap-4">
-                  {project.stack.map((item, idx) => (
-                    <li
-                      key={idx}
-                      className="text-xl text-accent"
-                    >
-                      {item.name}
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-white/60">{project.description}</p>
-                <div className="border-b border-white/20 w-full"></div>
+                <Link
+                  href={project.github}
+                  target="_blank"
+                  className="w-[36px] h-[36px] border border-transparent rounded-full bg-transparent transition-all duration-500 flex justify-center items-center bg-accent group-hover:bg-accent"
+                >
+                  <BsGithub className="text-2xl sm:text-3xl text-accent group-hover:text-primary transition-all duration-500" />
+                </Link>
               </div>
-            );
-          })}
+
+              {/* Category */}
+              <div className="text-base sm:text-lg text-white font-semibold">
+                {project.category}
+              </div>
+
+              {/* Tech Stack */}
+              <ul className="flex flex-wrap gap-2 sm:gap-4">
+                {project.stack.map((item, idx) => (
+                  <li key={idx} className="text-base sm:text-xl text-accent">
+                    {item.name}
+                  </li>
+                ))}
+              </ul>
+
+              {/* Description */}
+              <p className="text-white/60 text-sm sm:text-base leading-relaxed">
+                {project.description}
+              </p>
+
+              <div className="border-b border-white/20 w-full"></div>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>

@@ -422,34 +422,42 @@ const Resume = () => {
             </TabsContent>
             {/* Experience */}
             <TabsContent value="experience" className="w-full">
-              <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                <h3 className="text-4xl font-bold">{experience.title}</h3>
-                {/* <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                  {experience.description}
-                </p> */}
-                <ScrollArea className="h-[400px]">
-                  <ul className="grid grid-cols-1 lg:grid-cols-1 gap-[30px]">
-                    {experience.items.map((item, index) => {
-                      return (
-                        <li
-                          key={index}
-                          className="bg-[#232329] h-[300px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
-                        >
-                          <span className="text-accent">{item.timeperiod}</span>
-                          <h3 className="text-2xl max-w-[564px] min-h-[40px] text-center lg:text-left">
-                            {item.company}
-                          </h3>
-                          <span className="text-xl">{item.position}</span>
-                          <span className="text-white/60">
-                            {item.description}
-                          </span>
-                        </li>
-                      );
-                    })}
+              <div className="flex flex-col gap-8 text-center xl:text-left px-4 sm:px-6 lg:px-0">
+                <h3 className="text-3xl sm:text-4xl font-bold break-words">
+                  {experience.title}
+                </h3>
+                {/* Uncomment if needed
+    <p className="max-w-xl text-white/60 mx-auto xl:mx-0 text-sm sm:text-base break-words">
+      {experience.description}
+    </p>
+    */}
+                <ScrollArea className="h-[300px] sm:h-[400px] overflow-y-auto">
+                  <ul className="grid grid-cols-1 gap-6">
+                    {experience.items.map((item, index) => (
+                      <li
+                        key={index}
+                        className="bg-[#232329] py-5 px-6 sm:px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-2 max-w-full break-words"
+                        // Removed fixed height so content grows naturally
+                      >
+                        <span className="text-accent text-sm sm:text-base break-words">
+                          {item.timeperiod}
+                        </span>
+                        <h3 className="text-xl sm:text-2xl max-w-full min-h-[40px] text-center lg:text-left break-words">
+                          {item.company}
+                        </h3>
+                        <span className="text-lg sm:text-xl break-words">
+                          {item.position}
+                        </span>
+                        <span className="text-white/60 text-sm sm:text-base break-words">
+                          {item.description}
+                        </span>
+                      </li>
+                    ))}
                   </ul>
                 </ScrollArea>
               </div>
             </TabsContent>
+
             {/* Education */}
             <TabsContent value="education" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
@@ -513,30 +521,36 @@ const Resume = () => {
             </TabsContent>
             {/* Achievements */}
             <TabsContent value="achievement" className="w-full">
-              <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                <h3 className="text-4xl font-bold">{achievements.title}</h3>
-                {/* <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                  {achievement.description}
-                </p> */}
-                <ScrollArea className="h-[400px]">
-                  <ul className="grid grid-cols-1 lg:grid-cols-1 gap-[30px]">
-                    {achievements.achievementList.map((item, index) => {
-                      return (
-                        <li
-                          key={index}
-                          className="bg-[#232329] h-[62px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
-                        >
-                          <p className="text-white/60">
-                            <span className="text-accent">{item.boldText}</span>{" "}
-                            {item.text}
-                          </p>
-                        </li>
-                      );
-                    })}
+              <div className="flex flex-col gap-8 text-center xl:text-left px-4 sm:px-6 lg:px-0">
+                <h3 className="text-3xl sm:text-4xl font-bold break-words">
+                  {achievements.title}
+                </h3>
+                {/* Uncomment if needed
+    <p className="max-w-xl text-white/60 mx-auto xl:mx-0 text-sm sm:text-base break-words">
+      {achievements.description}
+    </p>
+    */}
+                <ScrollArea className="h-[300px] sm:h-[400px] overflow-y-auto">
+                  <ul className="grid grid-cols-1 gap-6">
+                    {achievements.achievementList.map((item, index) => (
+                      <li
+                        key={index}
+                        className="bg-[#232329] py-4 px-6 sm:px-10 rounded-xl flex items-center lg:items-start gap-2 max-w-full break-words"
+                        // Removed fixed height to allow for multiline text
+                      >
+                        <p className="text-white/60 text-sm sm:text-base">
+                          <span className="text-accent font-semibold break-words">
+                            {item.boldText}
+                          </span>{" "}
+                          <span className="break-words">{item.text}</span>
+                        </p>
+                      </li>
+                    ))}
                   </ul>
                 </ScrollArea>
               </div>
             </TabsContent>
+
             {/* Courses */}
             <TabsContent value="courses" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
@@ -581,7 +595,11 @@ const Resume = () => {
                         >
                           <p className="text-white/60">
                             {item.platform + " "}
-                            <Link className="text-accent" href={item.link} target="_blank">
+                            <Link
+                              className="text-accent"
+                              href={item.link}
+                              target="_blank"
+                            >
                               {item.username}
                             </Link>
                           </p>
@@ -594,31 +612,38 @@ const Resume = () => {
             </TabsContent>
             {/* Certificates */}
             <TabsContent value="certificate" className="w-full">
-              <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                <h3 className="text-4xl font-bold">{certificate.title}</h3>
-                {/* <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                  {certificate.description}
-                </p> */}
-                <ScrollArea className="h-[400px]">
-                  <ul className="grid grid-cols-1 lg:grid-cols-1 gap-[30px]">
-                    {certificate.certificateList.map((item, index) => {
-                      return (
-                        <li
-                          key={index}
-                          className="bg-[#232329] h-[148px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
+              <div className="flex flex-col gap-8 text-center xl:text-left px-4 sm:px-6 lg:px-0">
+                <h3 className="text-3xl sm:text-4xl font-bold break-words">
+                  {certificate.title}
+                </h3>
+                {/* Uncomment if needed
+    <p className="max-w-xl text-white/60 mx-auto xl:mx-0 text-sm sm:text-base break-words">
+      {certificate.description}
+    </p>
+    */}
+                <ScrollArea className="h-[300px] sm:h-[400px] overflow-y-auto">
+                  <ul className="grid grid-cols-1 gap-6">
+                    {certificate.certificateList.map((item, index) => (
+                      <li
+                        key={index}
+                        className="bg-[#232329] py-4 px-6 sm:px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 max-w-full break-words"
+                        // Removed fixed height to allow content to expand naturally
+                      >
+                        <h3 className="text-lg sm:text-xl max-w-full min-h-[36px] text-center lg:text-left break-words">
+                          {item.name}
+                        </h3>
+                        <p className="text-white/60 min-h-[40px] text-sm sm:text-base text-center lg:text-left break-words">
+                          {item.description}
+                        </p>
+                        <Link
+                          href={item.link}
+                          target="_blank"
+                          className="mt-2 text-accent hover:text-accent-light"
                         >
-                          <h3 className="text-xl max-w-[400px] min-h-[36px] text-center lg:text-left">
-                            {item.name}
-                          </h3>
-                          <p className="text-white/60 min-h-[40px] text-center lg:text-left">
-                            {item.description}
-                          </p>
-                          <Link href={item.link} target="_blank">
-                            <FaExternalLinkAlt />
-                          </Link>
-                        </li>
-                      );
-                    })}
+                          <FaExternalLinkAlt size={18} />
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 </ScrollArea>
               </div>
