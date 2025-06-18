@@ -58,16 +58,16 @@ const PostPage = (props) => {
   const slug = props.params.slug;
   const post = getPostContent(slug);
   return (
-    <div className="w-full flex flex-col gap-[30px]">
+    <div className="w-full flex flex-col gap-[30px] px-4 sm:px-8 lg:px-20">
       <h1 className="text-4xl text-accent text-center">{post.data.title}</h1>
-      <div className="bg-[#232329] h-full py-6 px-10 mx-20 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
+      <div className="bg-[#232329] p-4 sm:p-6 lg:p-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
         <ReactMarkdown
           children={post.content}
           remarkPlugins={[remarkGfm]}
           components={{
             h1: ({ node, ...props }) => (
               <h1
-                className="text-2xl text-center text-accent font-bold"
+                className="text-2xl sm:text-3xl text-center sm:text-left text-accent font-bold mb-4"
                 {...props}
               />
             ),
@@ -76,11 +76,11 @@ const PostPage = (props) => {
               <strong className="font-bold text-purple-500" {...props} />
             ),
             p: ({ node, ...props }) => (
-              <p className="my-4 text-[18px]" {...props} />
+              <p className="my-4 text-base sm:text-lg leading-relaxed" {...props} />
             ),
             a: ({ node, ...props }) => (
               <a
-                className="text-blue-500 hover:underline"
+                className="text-blue-500 hover:underline break-words"
                 target="_blank"
                 {...props}
               />
