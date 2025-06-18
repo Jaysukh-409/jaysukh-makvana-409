@@ -31,21 +31,21 @@ const Blog = () => {
   const postPreviews = postMetaData.map((post) => (
     <li
       key={post.slug}
-      className="bg-[#232329] h-[176px] py-6 px-10 mx-20 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
+      className="bg-[#232329] p-6 sm:p-8 rounded-xl flex flex-col justify-center items-center sm:items-start gap-2"
     >
-      <Link href={`/blog/${post.slug}`}>
-        <h3 className="text-2xl lg:text-left pb-4 text-accent">{post.title}</h3>
-        <p className="text-xl pb-2">{post.subtitle}</p>
-        <span className="text-white/60">{post.date}</span>
+      <Link href={`/blog/${post.slug}`} className="w-full">
+        <h3 className="text-xl sm:text-2xl font-semibold text-accent text-center sm:text-left pb-2">{post.title}</h3>
+        <p className="text-base sm:text-lg text-center sm:text-left pb-1">{post.subtitle}</p>
+        <span className="text-sm text-white/60 block text-center sm:text-lef">{post.date}</span>
       </Link>
     </li>
   ));
   return (
-    <div className="w-full flex flex-col text-left gap-[30px]">
-      <h2 className="text-4xl font-bold text-center">
+    <div className="w-full flex flex-col items-center gap-6 px-4 sm:px-8">
+      <h2 className="text-3xl sm:text-4xl font-bold text-center">
         <span className="text-accent">Jaysukh</span>'s Blog
       </h2>
-      <ul className="grid grid-cols-1 lg:grid-cols-1 gap-[20px]">
+      <ul className="w-full max-w-4xl flex flex-col gap-4">
         {postPreviews}
       </ul>
     </div>
