@@ -21,7 +21,7 @@ const getPostMetadata = () => {
   });
 
   // Sort posts by date
-  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  posts.sort((a, b) => new Date(a.date) - new Date(b.date));
 
   return posts;
 };

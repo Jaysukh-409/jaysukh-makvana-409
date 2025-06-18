@@ -1,7 +1,7 @@
 ---
 title: "Selected as Contributor for GSoC 2024"
 subtitle: "How I reach to this from opening my first PR for Stdlib"
-date: "2024-02-05"
+date: "02-05-2024"
 ---
 
 In last blog I talked about How I get into the Open-source and way to my first PR. If you are familiar with Open-source then I am pretty much sure that you must have heard word [GSoC](https://summerofcode.withgoogle.com/)(Google Summer of Code). In this blog I am going to share my experience till selected as GSoC 2024 contributor at Stdlib.
