@@ -422,8 +422,8 @@ const Resume = () => {
             </TabsContent>
             {/* Experience */}
             <TabsContent value="experience" className="w-full">
-              <div className="flex flex-col gap-[30px] text-center xl:text-left px-4 sm:px-6 md:px-10 xl:px-0">
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold break-words">{experience.title}</h3>
+              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                <h3 className="text-4xl font-bold">{experience.title}</h3>
                 {/* <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {experience.description}
                 </p> */}
@@ -433,14 +433,14 @@ const Resume = () => {
                       return (
                         <li
                           key={index}
-                          className="bg-[#232329] py-6 px-4 sm:px-6 md:px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-2"
+                          className="bg-[#232329] h-[300px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
                         >
-                          <span className="text-accent text-sm sm:text-base">{item.timeperiod}</span>
-                          <h3 className="text-lg sm:text-xl md:text-2xl max-w-[564px] text-center lg:text-left break-words">
+                          <span className="text-accent">{item.timeperiod}</span>
+                          <h3 className="text-2xl max-w-[564px] min-h-[40px] text-center lg:text-left">
                             {item.company}
                           </h3>
                           <span className="text-xl">{item.position}</span>
-                          <span className="text-white/60 text-sm sm:text-base leading-relaxed text-center lg:text-left">
+                          <span className="text-white/60">
                             {item.description}
                           </span>
                         </li>
@@ -513,8 +513,8 @@ const Resume = () => {
             </TabsContent>
             {/* Achievements */}
             <TabsContent value="achievement" className="w-full">
-              <div className="flex flex-col gap-[30px] text-center xl:text-left px-4 sm:px-6 md:px-10 xl:px-0">
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold break-words">{achievements.title}</h3>
+              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                <h3 className="text-4xl font-bold">{achievements.title}</h3>
                 {/* <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {achievement.description}
                 </p> */}
@@ -524,9 +524,9 @@ const Resume = () => {
                       return (
                         <li
                           key={index}
-                          className="bg-[#232329] py-4 sm:py-5 md:py-6 px-4 sm:px-6 md:px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 text-sm sm:text-base"
+                          className="bg-[#232329] h-[62px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
                         >
-                          <p className="text-white/60 text-center lg:text-left leading-relaxed break-words">
+                          <p className="text-white/60">
                             <span className="text-accent">{item.boldText}</span>{" "}
                             {item.text}
                           </p>
@@ -594,8 +594,8 @@ const Resume = () => {
             </TabsContent>
             {/* Certificates */}
             <TabsContent value="certificate" className="w-full">
-              <div className="flex flex-col gap-[30px] text-center xl:text-left px-4 sm:px-6 md:px-10 xl:px-0">
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold break-words">{certificate.title}</h3>
+              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                <h3 className="text-4xl font-bold">{certificate.title}</h3>
                 {/* <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {certificate.description}
                 </p> */}
@@ -605,12 +605,12 @@ const Resume = () => {
                       return (
                         <li
                           key={index}
-                          className="bg-[#232329] py-6 px-4 sm:px-6 md:px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-2 sm:gap-1 text-sm sm:text-base"
+                          className="bg-[#232329] h-[148px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
                         >
-                          <h3 className="text-base sm:text-lg md:text-xl max-w-full sm:max-w-[400px] min-h-[36px] text-center lg:text-left break-words">
+                          <h3 className="text-xl max-w-[400px] min-h-[36px] text-center lg:text-left">
                             {item.name}
                           </h3>
-                          <p className="text-white/60 min-h-[40px] text-center lg:text-left text-sm sm:text-base leading-relaxed">
+                          <p className="text-white/60 min-h-[40px] text-center lg:text-left">
                             {item.description}
                           </p>
                           <Link href={item.link} target="_blank">

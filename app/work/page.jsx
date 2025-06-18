@@ -36,7 +36,7 @@ const projects = [
 
 const Work = () => {
   return (
-    <section className="min-h-[80vh] flex flex-col justify-center px-4 sm:px-6 md:px-10 xl:px-20 py-12 xl:py-0">
+    <section className="min-h-[80vh] flex flex-col justify-center px-10 mx-20 py-12 xl:py-0">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -52,8 +52,8 @@ const Work = () => {
                 key={index}
                 className="flex-1 flex flex-col justify-center gap-6 group"
               >
-                <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500 break-words">
+                <div className="w-full flex justify-between items-center">
+                  <div className="text-4xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500">
                     {project.num + " " + project.title}
                   </div>
                   <Link
@@ -61,17 +61,17 @@ const Work = () => {
                     target="_blank"
                     className="w-[32px] h-[32px] border border-transparent rounded-full bg-transparent transition-all duration-500 flex justify-center items-center bg-accent group-hover:bg-accent"
                   >
-                    <BsGithub className="text-2xl sm:text-3xl text-accent group-hover:text-primary transition-all duration-500" />
+                    <BsGithub className="text-3xl text-accent group-hover:text-primary transition-all duration-500" />
                   </Link>
                 </div>
                 <div className="text-lg text-white font-semibold">
                   {project.category}
                 </div>
-                <ul className="flex flex-wrap gap-4">
+                <ul className="flex gap-4">
                   {project.stack.map((item, idx) => (
                     <li
                       key={idx}
-                      className="text-base sm:text-xl text-accent"
+                      className="text-xl text-accent"
                     >
                       {item.name}
                     </li>
