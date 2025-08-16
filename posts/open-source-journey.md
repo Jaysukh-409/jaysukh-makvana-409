@@ -1,7 +1,7 @@
 ---
 title: "Open Source Journey"
 subtitle: "How I get into it and my way to the first PR"
-date: "12-01-2024"
+date: "2024-02-12"
 ---
 
 Hello, I am **Jaysukh Makvana** from Surat, Gujarat. I am pursuing Bachelors of Technology in Computer Science and Engineering from Indian Institute of Technology, Jodhpur.

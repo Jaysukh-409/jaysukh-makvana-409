@@ -1,7 +1,7 @@
 ---
 title: "Reflection on GSoC 2024 Journey"
 subtitle: "Brief about the project & How I approach it?"
-date: "01-08-2024"
+date: "2024-08-01"
 ---
 
 # Project Overview
