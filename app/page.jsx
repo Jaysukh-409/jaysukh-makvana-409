@@ -16,6 +16,7 @@ const Home = () => {
   React.useEffect(() => {
     const typed = new Typed(roleText.current, {
       strings: [
+        "Software Engineer",
         "Open-Source Contributor",
         "Flutter Developer",
         "Competitive Programmer",
@@ -44,8 +45,7 @@ const Home = () => {
               <span className="text-accent">Jaysukh Makvana</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
-              I am a open-source contributor and android developer. I love to
-              work with new technologies and always ready to learn new things.
+              I am a software engineer at Google. I am a open-source contributor and android developer. I love to work with new technologies and always ready to learn new things.
               Since, I like to solve problems, I am doing competitive
               programming as well. Apart from this, I make videos on youtube
               related to programming and development. I am noob :) footballer
