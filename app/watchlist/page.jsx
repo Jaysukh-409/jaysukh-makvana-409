@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getWatchlist } from "@/lib/firestore";
-import { WatchlistItem, Category } from "@/types/watchlist";
+import { Category } from "@/types/watchlist";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -26,6 +26,7 @@ const Watchlist = () => {
   const [filteredList, setFilteredList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState("All");
+  const [activeLang, setActiveLang] = useState("All");
 
   useEffect(() => {
     const fetchWatchlist = async () => {
@@ -38,12 +39,17 @@ const Watchlist = () => {
   }, []);
 
   useEffect(() => {
-    if (activeFilter === "All") {
-      setFilteredList(watchlist);
-    } else {
-      setFilteredList(watchlist.filter((item) => item.category === activeFilter));
+    let filtered = watchlist;
+    if (activeFilter !== "All") {
+      filtered = filtered.filter((item) => item.category === activeFilter);
     }
-  }, [activeFilter, watchlist]);
+    if (activeLang !== "All") {
+      filtered = filtered.filter((item) => item.language === activeLang);
+    }
+    setFilteredList(filtered);
+  }, [activeFilter, activeLang, watchlist]);
+
+  const languages = ["All", ...Array.from(new Set(watchlist.map(item => item.language)))];
 
   return (
     <motion.section
@@ -58,7 +64,7 @@ const Watchlist = () => {
         {/* Toggle Section */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
 
-          {/* Toggle Buttons */}
+          {/* Category Toggle */}
           <div className="flex p-1 bg-gray-900/80 backdrop-blur-md rounded-xl border border-white/5 w-fit">
             {["All", Category.MOVIE, Category.SERIES].map((tab) => (
               <button
@@ -76,6 +82,28 @@ const Watchlist = () => {
                   />
                 )}
                 <span className="relative z-10">{tab}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Language Toggle */}
+          <div className="flex p-1 bg-gray-900/80 backdrop-blur-md rounded-xl border border-white/5 w-fit">
+            {languages.map((lang) => (
+              <button
+                key={lang}
+                onClick={() => setActiveLang(lang)}
+                className={`relative px-6 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${
+                  activeLang === lang ? "text-white" : "text-gray-500 hover:text-gray-300"
+                }`}
+              >
+                {activeLang === lang && (
+                  <motion.div
+                    layoutId="activeLangTab"
+                    className="absolute inset-0 bg-white/10 rounded-lg shadow-[0_0_15px_rgba(255,255,255,0.05)]"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+                <span className="relative z-10">{lang}</span>
               </button>
             ))}
           </div>
@@ -141,13 +169,9 @@ const Watchlist = () => {
         )}
 
         {!loading && filteredList.length === 0 && (
-          <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            className="text-center py-20 text-gray-500"
-          >
-            No {activeFilter === "All" ? "items" : activeFilter.toLowerCase()} found in your list.
-          </motion.div>
+          <div className="text-center py-20 text-gray-500 font-medium">
+            No items found in this category or language.
+          </div>
         )}
       </div>
     </motion.section>
