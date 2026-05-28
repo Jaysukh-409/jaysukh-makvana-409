@@ -35,3 +35,5 @@ export const getWatchlist = async (): Promise<WatchlistItem[]> => {
     return [];
   }
 };
+
+export { db };
