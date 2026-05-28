@@ -40,6 +40,7 @@ export default function AdminPage() {
     setLoading(true);
     setStatus("");
 
+    const form = e.currentTarget;
     const formData = new FormData(e.currentTarget);
 
     try {
@@ -52,7 +53,7 @@ export default function AdminPage() {
       });
 
       setStatus("Success! Movie added to database. 🚀");
-      e.currentTarget.reset();
+      form.reset();
     } catch (error) {
       console.error(error);
       setStatus("Error adding movie. Check console.");
