@@ -1,9 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { db } from "@/lib/firestore";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { Category } from "@/types/watchlist";
 import { motion } from "framer-motion";
-import { addMovieToDatabase } from "./actions"; // Import our new server function
+
+const HASHED_PASSWORD_SECRET = "ea85b9831218cbd8f44a10b6393b0b31e71c94630ceed2e52f39cc5d68f0e22e";
 
 export default function AdminPage() {
   const [loading, setLoading] = useState(false);
@@ -11,11 +14,24 @@ export default function AdminPage() {
   const [password, setPassword] = useState("");
   const [isVerified, setIsVerified] = useState(false);
 
-  // Simple local UI gate check (real validation still happens on server submit)
-  const handleLoginSubmit = (e) => {
+  const sha256 = async (string) => {
+    const utf8 = new TextEncoder().encode(string);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", utf8);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
+  };
+
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    if (password.trim() !== "") {
+    setStatus("");
+
+    const inputHash = await sha256(password);
+
+    if (inputHash === HASHED_PASSWORD_SECRET) {
       setIsVerified(true);
+    } else {
+      setStatus("❌ Incorrect password!");
+      setPassword("");
     }
   };
 
@@ -25,15 +41,21 @@ export default function AdminPage() {
     setStatus("");
 
     const formData = new FormData(e.currentTarget);
-    // Append the password to the form data so the server can verify it
-    formData.append("password", password);
 
     try {
-      await addMovieToDatabase(formData);
+      await addDoc(collection(db, "watchlist"), {
+        name: formData.get("name"),
+        category: formData.get("category"),
+        language: formData.get("language"),
+        posterUrl: formData.get("posterUrl"),
+        releaseDate: Timestamp.fromDate(new Date(formData.get("releaseDate"))),
+      });
+
       setStatus("Success! Movie added to database. 🚀");
       e.currentTarget.reset();
     } catch (error) {
-      setStatus(error.message || "Error adding movie.");
+      console.error(error);
+      setStatus("Error adding movie. Check console.");
     } finally {
       setLoading(false);
       setTimeout(() => setStatus(""), 4000);
@@ -47,7 +69,6 @@ export default function AdminPage() {
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-md bg-gray-900/50 backdrop-blur-xl p-8 rounded-3xl border border-white/10 shadow-2xl"
       >
-        {/* Gateway: If not verified locally, show password input first */}
         {!isVerified ? (
           <form onSubmit={handleLoginSubmit} className="flex flex-col gap-4">
             <h1 className="text-xl font-bold text-center mb-2">Admin Authentication</h1>
@@ -64,7 +85,6 @@ export default function AdminPage() {
             </button>
           </form>
         ) : (
-          /* Main Admin Form */
           <>
             <h1 className="text-2xl font-bold mb-6 text-center">Add New Entry</h1>
             
